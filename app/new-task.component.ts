@@ -1,8 +1,10 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {Task} from './task.model';
+import {Category} from './category.model';
 
 @Component({
   selector: 'new-task',
+  inputs: ['categoryList'],
   outputs: ['onSubmitNewTask'],
   template: `
   <div class="task-form">
@@ -14,9 +16,7 @@ import {Task} from './task.model';
       <option>Low</option>
     </select>
     <select #newCategory>
-      <option>Home</option>
-      <option selected>Work</option>
-      <option>Hobby</option>
+      <option *ngFor="#category of categoryList">{{category.name}}</option>
     </select>
     <button (click)="addTask(newDescription, newPriority, newCategory)" class="btn-success btn-lg add-button">Add</button>
   </div>

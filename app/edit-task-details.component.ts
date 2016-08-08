@@ -1,9 +1,10 @@
 import {Component} from 'angular2/core';
 import {Task} from './task.model';
+import {Category} from './category.model';
 
 @Component({
   selector: 'edit-task-details',
-  inputs: ['task'],
+  inputs: ['task', 'categoryList'],
   template: `
   <div class="task-form">
     <input [(ngModel)]="task.description" class="col-sm-8 input-lg task-form"/>
@@ -13,9 +14,7 @@ import {Task} from './task.model';
       <option>Low</option>
     </select>
     <select [(ngModel)]="task.category" #editCategory>
-      <option>Home</option>
-      <option selected>Work</option>
-      <option>Hobby</option>
+      <option *ngFor="#currentCategory of categoryList">{{currentCategory.name}}</option>
     </select>
   </div>
   `

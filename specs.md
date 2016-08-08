@@ -1,1 +1,1 @@
-* Add categories
+* improve task edit interface
