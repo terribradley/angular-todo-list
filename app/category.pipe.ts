@@ -8,14 +8,10 @@ import {Task} from './task.model';
 export class CategoryPipe implements PipeTransform {
   transform(input: Task[], args) {
     var desiredCategory = args[0];
-    if(desiredCategory === "Home") {
-      return input.filter((task) => (task.category === "Home"));
-    } else if (desiredCategory === "Work") {
-      return input.filter((task) => (task.category === "Work"));
-    } else if (desiredCategory === "Hobby") {
-        return input.filter((task) => (task.category === "Hobby"));
-    } else {
+    if(desiredCategory === "All") {
       return input;
+    } else {
+      return input.filter((task) => (task.category === desiredCategory));
     }
   }
 }
