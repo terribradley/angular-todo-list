@@ -12,6 +12,11 @@ import {Task} from './task.model';
       <option selected>Medium</option>
       <option>Low</option>
     </select>
+    <select [(ngModel)]="task.category" #editCategory>
+      <option>Home</option>
+      <option selected>Work</option>
+      <option>Hobby</option>
+    </select>
   </div>
   `
 })
