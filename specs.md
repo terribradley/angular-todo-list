@@ -1,0 +1,2 @@
+* Add categories
+* assign priorities
